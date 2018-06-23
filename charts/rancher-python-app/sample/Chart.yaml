@@ -1,0 +1,14 @@
+name: python-app
+version: 0.0.6
+description: A Sample Rancher Python application.
+keywords:
+- python
+- rancher
+- development
+home: http://rancher.com
+source:
+- https://galal-hussein@bitbucket.org/galal-hussein/rancher-python-app.git
+maintainers:
+- name: Rancher Labs
+  email: support@rancher.com
+engine: gotpl

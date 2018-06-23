@@ -1,0 +1,2 @@
+app:
+  image: gcr.io/rancher-qa/rancher-python-app:VERSION
