@@ -1,2 +1,2 @@
 app:
-  image: gcr.io/rancher-qa/rancher-python-app:${APP_${APP_v0.0.7}}
+  image: gcr.io/rancher-qa/rancher-python-app:v0.0.7
