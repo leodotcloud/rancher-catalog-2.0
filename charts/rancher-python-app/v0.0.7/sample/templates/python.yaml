@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: python
+    release: "{{ .Release.Name }}"
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: python
+        release: "{{ .Release.Name }}"
+    spec:
+      containers:
+      - name: python
+        image: "{{ .Values.app.image }}"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          name: python
+          protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-python
+  labels:
+    app: python
+    release: "{{ .Release.Name }}"
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: http
+  selector:
+    app: python
+    release: "{{ .Release.Name }}"
